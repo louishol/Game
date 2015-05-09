@@ -2,56 +2,80 @@ init = function(){
 
  	var uid = 3;
 
-    var user = {"id": "jcwijger", "name": "Jarno van Wijgerden", "email": "jcwijger@avans.nl", "nickname": "Jarno"}
+  var user = {"id": "jcwijger", "name": "Jarno van Wijgerden", "email": "jcwijger@avans.nl", "nickname": "Jarno"}
 
-    var games = [
-        {
-         "id": 1,
-         "layout": "snake", // -> 'shanghai'|'snake'|'ox'|'ram'|'dragon'|'rooster'|'monkey'
-         "createdOn": "2015-04-28 16:17:08", // date + time
-         "startedOn": "2015-04-28 16:40:00", // date + time
-         "endedOn": "2015-04-28 22:00:00", // date + time
-         "createdBy": {
-           "id": "lahol", // Avans username
-           "name": "Louis Hol", // fullname
-           "email": "lahol@avans.nl", // avans e-mail
-           "nickname": "losbarros" // maybe filled later?   
-         },
-         "minPlayers": 1, // 35 <= x >= 1, Required number of players to start
-         "maxPlayers": 3,  // 35 <= x >= 1
-         "players": [{
-           "id": "lahol", // Avans username
-           "name": "Louis Hol", // fullname
-           "email": "lahol@avans.nl", // avans e-mail
-           "nickname": "losbarros" // maybe filled later?
-           // Properties like score and isWinner maybe filled later
-         }],
-         "state": "open" // -> 'open'|'playing'|'finished'
-        },
-        {
-         "id": 2,
-         "layout": "shanghai", // -> 'shanghai'|'snake'|'ox'|'ram'|'dragon'|'rooster'|'monkey'
-         "createdOn": "2015-04-28 16:00:00", // date + time
-         "startedOn": "2015-04-28 17:00:00", // date + time
-         "endedOn": "2015-04-28 23:17:00", // date + time
-         "createdBy": {
-           "id": "lahol", // Avans username
-           "name": "Louis Hol", // fullname
-           "email": "lahol@avans.nl", // avans e-mail
-           "nickname": "losbarros" // maybe filled later?
-         },
-         "minPlayers": 1, // 35 <= x >= 1, Required number of players to start
-         "maxPlayers": 3,  // 35 <= x >= 1
-         "players": [{
-           "id": "lahol", // Avans username
-           "name": "Louis Hol", // fullname
-           "email": "lahol@avans.nl", // avans e-mail
-           "nickname": "losbarros" // maybe filled later?
-           // Properties like score and isWinner maybe filled later
-         }],
-         "state": "open" // -> 'open'|'playing'|'finished'
-        }
-    ]
+  var http = require('http');
+
+  var games = []
+  var options = {
+  host: 'mahjongmayhem.herokuapp.com',  
+  path: '/games'
+  };
+
+  callback = function(response) {
+    var str = '';
+
+    //another chunk of data has been recieved, so append it to `str`
+    response.on('data', function (chunk) {
+      str += chunk;
+    });
+
+    //the whole response has been recieved, so we just print it out here
+    response.on('end', function () {
+      games = str;
+    });
+  }
+
+  http.request(options, callback).end();
+
+    // var games = [
+    //     {
+    //      "id": 1,
+    //      "layout": "snake", // -> 'shanghai'|'snake'|'ox'|'ram'|'dragon'|'rooster'|'monkey'
+    //      "createdOn": "2015-04-28 16:17:08", // date + time
+    //      "startedOn": "2015-04-28 16:40:00", // date + time
+    //      "endedOn": "2015-04-28 22:00:00", // date + time
+    //      "createdBy": {
+    //        "id": "lahol", // Avans username
+    //        "name": "Louis Hol", // fullname
+    //        "email": "lahol@avans.nl", // avans e-mail
+    //        "nickname": "losbarros" // maybe filled later?   
+    //      },
+    //      "minPlayers": 1, // 35 <= x >= 1, Required number of players to start
+    //      "maxPlayers": 3,  // 35 <= x >= 1
+    //      "players": [{
+    //        "id": "lahol", // Avans username
+    //        "name": "Louis Hol", // fullname
+    //        "email": "lahol@avans.nl", // avans e-mail
+    //        "nickname": "losbarros" // maybe filled later?
+    //        // Properties like score and isWinner maybe filled later
+    //      }],
+    //      "state": "open" // -> 'open'|'playing'|'finished'
+    //     },
+    //     {
+    //      "id": 2,
+    //      "layout": "shanghai", // -> 'shanghai'|'snake'|'ox'|'ram'|'dragon'|'rooster'|'monkey'
+    //      "createdOn": "2015-04-28 16:00:00", // date + time
+    //      "startedOn": "2015-04-28 17:00:00", // date + time
+    //      "endedOn": "2015-04-28 23:17:00", // date + time
+    //      "createdBy": {
+    //        "id": "lahol", // Avans username
+    //        "name": "Louis Hol", // fullname
+    //        "email": "lahol@avans.nl", // avans e-mail
+    //        "nickname": "losbarros" // maybe filled later?
+    //      },
+    //      "minPlayers": 1, // 35 <= x >= 1, Required number of players to start
+    //      "maxPlayers": 3,  // 35 <= x >= 1
+    //      "players": [{
+    //        "id": "lahol", // Avans username
+    //        "name": "Louis Hol", // fullname
+    //        "email": "lahol@avans.nl", // avans e-mail
+    //        "nickname": "losbarros" // maybe filled later?
+    //        // Properties like score and isWinner maybe filled later
+    //      }],
+    //      "state": "open" // -> 'open'|'playing'|'finished'
+    //     }
+    // ]
     
 
     function formatDate () {

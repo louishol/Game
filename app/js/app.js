@@ -20,8 +20,6 @@ module.config(['$routeProvider', function($routeProvider, $locationProvider) {
   })
 }]);
 
-
-
 module.controller('CallbackController', function($routeParams) {
   var self = this;
   self.message = $routeParams;
