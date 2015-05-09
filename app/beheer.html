@@ -1,0 +1,71 @@
+
+<link rel="stylesheet" type="text/css" href="css/app.css">
+    <form class="well">
+        <label>Spel layout</label>
+        <select ng-model="newgame.layout">
+            <option>shanghai</option>
+            <option>snake</option>
+            <option>ox</option>
+            <option>ram</option>
+            <option>dragon</option>
+            <option>rooster</option>
+            <option>monkey</option>
+        </select>
+        <label>Minimale spelers</label>
+          <select ng-model="newgame.minPlayers">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+        </select>
+
+        <label>Maximale spelers</label>
+        <select ng-model="newgame.maxPlayers">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+        </select>
+        <label>Status</label>
+          <select ng-model="newgame.state">
+            <option>open</option>
+            <option>playing</option>
+            <option>finished</option>
+        </select>
+        <br/>
+        <input type="hidden" ng-model="newgame.id" />
+        <input type="button" value="Save" ng-click="saveGame()" class="btn btn-primary" />
+    </form>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Layout</th>
+                <th>Aangemaakt door</th>
+                <th>Gemaakt op</th>
+                <th>Start datum</th>
+                <th>Minimale spelers</th>
+                <th>Maximale spelers</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="game in games | orderBy:'startedOn'">
+                <td>{{ game.layout }}</td>
+                <td>{{ game.createdBy.name }}</td>
+                <td>{{ game.createdOn }}</td>
+                <td>{{ game.startedOn }}</td>
+                <td>{{ game.minPlayers }}</td>
+                <td>{{ game.maxPlayers }}</td>
+                <td>{{ game.state }}</td>
+                <td> <a href="javascript:void(0)" ng-click="edit(game.id)">edit</a> | <a href="javascript:void(0)" ng-click="delete(game.id)">delete</a>  <a href="javascript:void(0)" ng-click="join(game.id)" ng-show="game.state === 'open'">| join</a> <a href="javascript:void(0)" ng-click="show(game.id)" ng-show="game.state === 'open'">| Players</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<!-- </div> -->
