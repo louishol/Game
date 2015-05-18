@@ -94,7 +94,7 @@ alert("ok");
         </tbody>
     </table>
     <div id="mahjong">
-      <div ng-repeat="tile in tiles" class="tile" style="left: {{ tile.xPos *50-50 }}px; top: {{ tile.yPos *50-50 }}px; z-index: {{ tile.zPos * 100 }}px;"   id="mahjong"/>
+      <div ng-repeat="tile in tiles" ng-click="removeTile(tile)" class="tile" style="left: {{ tile.xPos *50-50 }}px; top: {{ tile.yPos *50-50 }}px; z-index: {{ tile.zPos * 100 }}px;"   id="mahjong"/>
 </form>
 
 
