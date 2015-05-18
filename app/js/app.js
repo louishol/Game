@@ -1,11 +1,15 @@
 require('angular/angular');
 require('angular-route');
 var module = angular.module('app', ['ngRoute']);
-var service = require('../games/services/GameService');
+var gameservice = require('../games/services/GameService');
+var detailsservice = require('../games/services/DetailsService');
+
 var gamecontroller = require('../games/controllers/GameController')
 var detailscontroller = require('../games/controllers/DetailsController')
 
-module.service('GameService', service);
+module.service('GameService', gameservice);
+module.service('DetailsService', detailsservice);
+
 
 module.controller('BeheerController', gamecontroller);
 module.controller("DetailsController", detailscontroller);

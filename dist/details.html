@@ -1,91 +1,102 @@
-<h1>Detail test pagina</h1>
-<h3>Gekozen ID is {{ id }}</h3>
-<style type="text/css">
 
-form.cmxform fieldset {
-  margin-bottom: 10px;
-}
-form.cmxform legend {
-  padding: 0 2px;
-  font-weight: bold;
-}
-form.cmxform label {
-  display: inline-block;
-  line-height: 1.8;
-  vertical-align: top;
-}
-form.cmxform fieldset ol {
-  margin: 0;
-  padding: 0;
-}
-form.cmxform fieldset li {
-  list-style: none;
-  padding: 5px;
-  margin: 0;
-}
-form.cmxform fieldset fieldset {
-  border: none;
-  margin: 3px 0 0;
-}
-form.cmxform fieldset fieldset legend {
-  padding: 0 0 5px;
-  font-weight: normal;
-}
-form.cmxform fieldset fieldset label {
-  display: block;
-  width: auto;
-}
-form.cmxform em {
-  font-weight: bold;
-  font-style: normal;
-  color: #f00;
-}
-form.cmxform label {
-  width: 120px; /* Width of labels */
-}
-form.cmxform fieldset fieldset label {
-  margin-left: 123px; /* Width plus 3 (html space) */
-}
+<script type="text/javascript">
+alert("ok");
+</script>
+
+
+<style>
+ #mahjong { position:relative; background:#c1c1c1; }
+  #mahjong .tile { width:50px; height:50px; position:absolute; background:green; border-style: solid;}
 </style>
 
 
-<fieldset>
-  <legend>Delivery Details</legend>
-  <ol>
-  <li>
-      <label for="name">Name<em>*</em></label>
-      <input id="name" />
-    </li>
-  <li>
-      <label for="address1">Address<em>*</em></label>
-      <input id="address1" />
-    </li>
-  <li>
-      <label for="address2">Address 2</label>
-      <input id="address2" />
-    </li>
-  <li>
-      <label for="town-city">Town/City</label>
-      <input id="town-city" />
-    </li>
-  <li>
-      <label for="county">County<em>*</em></label>
-      <input id="county" />
-    </li>
-  <li>
-      <label for="postcode">Postcode<em>*</em></label>
-      <input id="postcode" />
-    </li>
-  <li>
-      <fieldset>
-        <legend>Is this address also your invoice »
-address?<em>*</em></legend>
-        <label><input type="radio" »
-name="invoice-address" /> Yes</label>
-        <label><input type="radio" »
-name="invoice-address" /> No</label>
-      </fieldset>
-    </li>
-  </ol>
-</fieldset>
+<form class="form-horizontal">
+    <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Game ID</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game._id }}</p>
+      	</div>
+    </div>
+    <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Aangemaakt op</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game.createdOn }}</p>
+      	</div>
+    </div>
+     <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Gestart op</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game.startedOn }}</p>
+      	</div>
+    </div>
+     <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Geeindigt op</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game.endedOn }}</p>
+      	</div>
+    </div>
+    <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Email</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game.createdBy._id }}</p>
+      	</div>
+    </div>
+    <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Naam</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game.createdBy.name }}</p>
+      	</div>
+    </div>
+    <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Game template</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game._id }}</p>
+      	</div>
+    </div>
+    <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Gemaakt door</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game.gameTemplate._id }}</p>
+      	</div>
+    </div>
+    <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Min spelers</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game.minPlayers }}</p>
+      	</div>
+    </div>
+    <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Max spelers</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game.maxPlayers }}</p>
+      	</div>
+    </div>
+      <div class="form-group" style="width:80%">
+        <label for="inputEmail" class="control-label col-xs-2">Status</label>
+         <div class="col-sm-10">
+        	<p class="form-control-static"> {{ game.state }}</p>
+      	</div>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Naam</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="g in game.players">
+                <td>{{ g._id }}</td>
+                <td>{{ g.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="mahjong">
+      <div ng-repeat="tile in tiles" class="tile" style="left: {{ tile.xPos *50-50 }}px; top: {{ tile.yPos *50-50 }}px; z-index: {{ tile.zPos * 100 }}px;"   id="mahjong"/>
+</form>
+
+
+
 
