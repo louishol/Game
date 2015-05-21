@@ -1,102 +1,61 @@
+<table class="table table-striped table-bordered detailTable" width="60%">
+  <tr>
+    <td class="header">Game ID</td>
+    <td>{{ game._id }}</td>
+    <td class="header">Status</td>
+    <td>{{ game.state }}</td>
+  </tr>
+  <tr>
+    <td class="header">Game template</td>
+    <td>{{ game._id }}</td>
+    <td class="header">Gestart op</td>
+    <td>{{ game.startedOn }}</td>
+  </tr>
+  <tr>
+    <td class="header">Gemaakt door</td>
+    <td>{{ game.gameTemplate._id }}</td>
+    <td class="header">Beeindigd op</td>
+    <td>{{ game.endedOn }}</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td class="header">Aangemaakt op</td>
+    <td>{{ game.createdOn }}</td>
+  </tr>
+  <tr>
+    <td class="header">Minimaal spelers</td>
+    <td>{{ game.minPlayers }}</td>
+    <td class="header">Aangemaakt door</td>
+    <td>{{ game.createdBy.name }}</td>
+  </tr>
+  <tr>
+    <td class="header">Maximaal spelers</td>
+    <td>{{ game.maxPlayers }}</td>
+    <td class="header">E-mail adres beheerder</td>
+    <td>{{ game.createdBy._id }}</td>
+  </tr>
+</table>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2">Spelers</th>            
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Naam</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="g in game.players">
+            <td>{{ g._id }}</td>
+            <td>{{ g.name }}</td>
+        </tr>
+    </tbody>
+</table>
 
-<script type="text/javascript">
-alert("ok");
-</script>
-
-
-<style>
- #mahjong { position:relative; background:#c1c1c1; }
-  #mahjong .tile { width:50px; height:50px; position:absolute; background:green; border-style: solid;}
-</style>
-
-
-<form class="form-horizontal">
-    <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Game ID</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game._id }}</p>
-      	</div>
-    </div>
-    <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Aangemaakt op</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game.createdOn }}</p>
-      	</div>
-    </div>
-     <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Gestart op</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game.startedOn }}</p>
-      	</div>
-    </div>
-     <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Geeindigt op</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game.endedOn }}</p>
-      	</div>
-    </div>
-    <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Email</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game.createdBy._id }}</p>
-      	</div>
-    </div>
-    <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Naam</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game.createdBy.name }}</p>
-      	</div>
-    </div>
-    <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Game template</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game._id }}</p>
-      	</div>
-    </div>
-    <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Gemaakt door</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game.gameTemplate._id }}</p>
-      	</div>
-    </div>
-    <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Min spelers</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game.minPlayers }}</p>
-      	</div>
-    </div>
-    <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Max spelers</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game.maxPlayers }}</p>
-      	</div>
-    </div>
-      <div class="form-group" style="width:80%">
-        <label for="inputEmail" class="control-label col-xs-2">Status</label>
-         <div class="col-sm-10">
-        	<p class="form-control-static"> {{ game.state }}</p>
-      	</div>
-    </div>
-
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Naam</th>
-            
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="g in game.players">
-                <td>{{ g._id }}</td>
-                <td>{{ g.name }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <div id="mahjong">
-      <div ng-repeat="tile in tiles" ng-click="removeTile(tile)" class="tile" style="left: {{ tile.xPos *50-50 }}px; top: {{ tile.yPos *50-50 }}px; z-index: {{ tile.zPos * 100 }}px;"   id="mahjong"/>
-</form>
-
-
-
-
+<div id="mahjong">
+  <div ng-repeat="tile in tiles" ng-click="removeTile(tile)" class="tile {{tile.tile.suit}} {{tile.tile.name}}" style="left: {{ tile.xPos *32 }}px; top: {{ tile.yPos *32 + 100 + tile.zPos *6 }}px; z-index: {{ tile.zPos * 100 }};">{{tile.tile.name}}</div>
+  <div class="clear"></div>
+</div>

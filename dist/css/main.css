@@ -1,0 +1,26 @@
+#appContainer { padding:20px;}
+	 #mahjong { position:relative; height:700px; }
+	  #mahjong .tile { padding-top:5px; color:red; width:64px; height:64px; font-weight:bold; position:absolute; background:green; text-align:center; }
+	  	#mahJong .tile.Flower { background:url('https://cdn0.iconfinder.com/data/icons/mahjong/64/pin2.png'); }
+	  	#mahJong .tile.Bamboo { background:url('https://cdn0.iconfinder.com/data/icons/mahjong/64/bamboo.png'); }
+	  	#mahJong .tile.Character { background:url('https://cdn0.iconfinder.com/data/icons/mahjong/64/man1.png'); }
+	  	#mahJong .tile.Wind { background:url('https://cdn0.iconfinder.com/data/icons/mahjong/64/wind-east.png'); }
+	  	#mahJong .tile.Season { background:url('https://cdn0.iconfinder.com/data/icons/mahjong/64/wind-south.png'); }
+	  	#mahJong .tile.Dragon { background:url('https://cdn0.iconfinder.com/data/icons/mahjong/64/dragon-chun.png'); }
+	  	#mahJong .tile.Circle { background:url('https://cdn0.iconfinder.com/data/icons/mahjong/64/pin1.png'); }
+	.detailTable { margin:0 0 20px; }
+	table { }
+		table tr { }
+			table tr td { }
+				table tr td.header { font-weight:bold; }
+
+/* Layout fixes */
+.clear { clear:both; }
+
+.clearFix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
