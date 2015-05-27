@@ -77,8 +77,9 @@
       <tr>
         <td>Speler1</td>
         <td>
-          <div id="mahjong">
-            <div ng-repeat="tile in tiles | filter: { clicked: 'speler1' }" class="tile {{tile.tile.suit}} {{tile.tile.name}}" style="float:left; width:100px;">{{tile.tile.name}}</div>
+          <div id="mahjong" style="width:auto; height:auto;">
+            <div ng-repeat="tile in tiles | filter: { clicked: 'speler1' }" class="tile {{tile.tile.suit}} {{tile.tile.name}}" style="float:left; width:53px; position:relative;">
+            {{tile.tile.name}}</div>
             <div class="clear"></div>
           </div>
         </td>
@@ -86,8 +87,8 @@
    <tr>
         <td>Speler2</td>
         <td>
-          <div id="mahjong">
-            <div ng-repeat="tile in tiles | filter: { clicked: 'speler2' }" class="tile {{tile.tile.suit}} {{tile.tile.name}}" style="float:left; width:100px;">{{tile.tile.name}}</div>
+          <div id="mahjong" style="width:auto; height:auto;">
+            <div ng-repeat="tile in tiles | filter: { clicked: 'speler2' }" class="tile {{tile.tile.suit}} {{tile.tile.name}}" style="float:left; width:53px; position:relative;">{{tile.tile.name}}</div>
             <div class="clear"></div>
           </div>
         </td>
