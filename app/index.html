@@ -1,20 +1,23 @@
-<script src="js/app.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<!-- App's own css -->
-<link rel="stylesheet" type="text/css" href="css/app.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<head>
+	<script src="js/app.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<!-- App's own css -->
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<body ng-app="app">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	 <base href="/">
+</head>
+<body ng-app="app" ng-controller="BeheerController">
 	<div id="appContainer">
 		<h1>Mahjong</h1>
-		<p><a href="#beheer">Beheer</a> | <a href="http://mahjongmayhem.herokuapp.com/auth/avans?callbackUrl=http://localhost:8080/#authcallback">Login </a></p>
-
+		<p><a href="beheer">Beheer</a> | <a href="http://mahjongmayhem.herokuapp.com/auth/avans?callbackUrl=http://localhost:8080/callbackurl">Login </a></p>
+		<span>U bent ingelogt als {{ username }}</span>
 	  	<ng-view></ng-view>
   </div>
 </body>

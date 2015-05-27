@@ -1,13 +1,9 @@
 var callback = function($location)
 {
     var parameters = $location.search();
-    
-    window.localStorage.setItem('username', locationObject.username);
-    window.localStorage.setItem('token', locationObject.token);
-    console.log("Callback " + locationObject.username);
-
+    window.localStorage.setItem('username', parameters.username);
+    window.localStorage.setItem('token', parameters.token);
     $location.url('/index');
-    window.location.reload();
-
+    window.location.href = "index.html";
 }
 module.exports = callback;
