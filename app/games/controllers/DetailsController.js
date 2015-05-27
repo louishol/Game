@@ -25,7 +25,17 @@ var Game = function($scope, $routeParams, DetailsService)
         });
 
     $scope.removeTile = function(tile) {
-        $scope.tiles.splice($scope.tiles.indexOf(tile), 1);
+    //$scope.tiles.splice($scope.tiles.indexOf(tile), 1);
+    console.log("Remove tile functie");
+    DetailsService.checkTiles(tile, function(tiles)
+        {
+            console.log("Tegels kloppen");
+            $scope.tiles.splice($scope.tiles.indexOf(tiles[0]), 1);
+            $scope.tiles.splice($scope.tiles.indexOf(tiles[1]), 1);
+        }, function(error, badtiles)
+        {
+            console.log(error);
+        });
     };
 }
 module.exports = Game;

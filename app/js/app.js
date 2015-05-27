@@ -29,7 +29,7 @@ module.config(['$routeProvider', function($routeProvider, $locationProvider) {
   }).
    when('/details/:id', {
        templateUrl: "../details.html",
-      controller: "DetailsController",
+      controller: "DetailsController", 
       controllerAs: "details"
   })
 }]);
