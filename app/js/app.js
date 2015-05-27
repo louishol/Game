@@ -20,10 +20,10 @@ module.controller("DetailsController", detailscontroller);
 module.controller('CallbackController', ['$location', callbackcontroller]);
 
 
-module.config(['$locationProvider', function ($locationProvider)
-{
-  $locationProvider.html5Mode(true);
-}]);
+// module.config(['$locationProvider', function ($locationProvider)
+// {
+//   $locationProvider.html5Mode(true);
+// }]);
 
 module.config(['$routeProvider', function($routeProvider, $locationProvider) {
   $routeProvider.

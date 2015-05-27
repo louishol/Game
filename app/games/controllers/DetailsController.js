@@ -4,6 +4,7 @@ var Game = function($scope, $routeParams, DetailsService)
     $scope.test = "ddddd";
     $scope.username = 'World';
     $scope.game = "";
+    var tiles = [];
     
     DetailsService.getDetailsByID(id, function(data)
         {
@@ -17,8 +18,15 @@ var Game = function($scope, $routeParams, DetailsService)
 
     DetailsService.getTilesByID(id, function(data)
         {
-            $scope.tiles = data;
-            console.log("Tile informatie " + data);
+
+            for(var tile in data)
+            {
+                data[tile].clicked = "none";
+                tiles.push(data[tile]);
+            }
+            $scope.tiles = tiles;
+            console.log("Tile info " + JSON.stringify(tiles));
+    
 
         }, function(error) {
             $scope.tiles = "";
@@ -29,9 +37,17 @@ var Game = function($scope, $routeParams, DetailsService)
     console.log("Remove tile functie");
     DetailsService.checkTiles(tile, function(tiles)
         {
+
+
+            var index1 = $scope.tiles.indexOf(tiles[0]);
+            var index2 = $scope.tiles.indexOf(tiles[1]);   
+            $scope.tiles[index1].clicked = "speler1";
+            $scope.tiles[index2].clicked = "speler1";
+
             console.log("Tegels kloppen");
-            $scope.tiles.splice($scope.tiles.indexOf(tiles[0]), 1);
-            $scope.tiles.splice($scope.tiles.indexOf(tiles[1]), 1);
+            console.log("Index van object 1 " + index1);
+           // $scope.tiles.splice($scope.tiles.indexOf(tiles[0]), 1);
+            //$scope.tiles.splice($scope.tiles.indexOf(tiles[1]), 1);
         }, function(error, badtiles)
         {
             console.log(error);

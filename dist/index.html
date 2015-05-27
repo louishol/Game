@@ -11,12 +11,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	 <base href="/">
+	 <!-- <base href="/"> -->
 </head>
 <body ng-app="app" ng-controller="BeheerController">
 	<div id="appContainer">
 		<h1>Mahjong</h1>
-		<p><a href="beheer">Beheer</a> | <a href="http://mahjongmayhem.herokuapp.com/auth/avans?callbackUrl=http://localhost:8080/callbackurl">Login </a></p>
+		<p><a href="#beheer">Beheer</a> | <a href="http://mahjongmayhem.herokuapp.com/auth/avans?callbackUrl=http://localhost:8080/callbackurl">Login </a></p>
 		<span>U bent ingelogt als {{ username }}</span>
 	  	<ng-view></ng-view>
   </div>
