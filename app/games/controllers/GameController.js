@@ -15,6 +15,9 @@ var Game = function($scope, GameService)
         if ($scope.newgame.id == id) $scope.newgame = {};
     }
 
+    $scope.start = function(id) {
+        GameService.start(id);
+    }
     $scope.join = function(id) {
         GameService.join(id);
     }
@@ -28,6 +31,9 @@ var Game = function($scope, GameService)
     }
     $scope.goto = function(id) {
         GameService.goto(id);
+    }
+    $scope.create = function() {
+        GameService.create();
     }
 }
 module.exports = Game;

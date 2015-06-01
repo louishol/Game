@@ -19,55 +19,6 @@ init = function($http){
         console.log("error");
       });
 
-
-    // var games = [
-    //     {
-    //      "id": 1,
-    //      "layout": "snake", // -> 'shanghai'|'snake'|'ox'|'ram'|'dragon'|'rooster'|'monkey'
-    //      "createdOn": "2015-04-28 16:17:08", // date + time
-    //      "startedOn": "2015-04-28 16:40:00", // date + time
-    //      "endedOn": "2015-04-28 22:00:00", // date + time
-    //      "createdBy": {
-    //        "id": "lahol", // Avans username
-    //        "name": "Louis Hol", // fullname
-    //        "email": "lahol@avans.nl", // avans e-mail
-    //        "nickname": "losbarros" // maybe filled later?   
-    //      },
-    //      "minPlayers": 1, // 35 <= x >= 1, Required number of players to start
-    //      "maxPlayers": 3,  // 35 <= x >= 1
-    //      "players": [{
-    //        "id": "lahol", // Avans username
-    //        "name": "Louis Hol", // fullname
-    //        "email": "lahol@avans.nl", // avans e-mail
-    //        "nickname": "losbarros" // maybe filled later?
-    //        // Properties like score and isWinner maybe filled later
-    //      }],
-    //      "state": "open" // -> 'open'|'playing'|'finished'
-    //     },
-    //     {
-    //      "id": 2,
-    //      "layout": "shanghai", // -> 'shanghai'|'snake'|'ox'|'ram'|'dragon'|'rooster'|'monkey'
-    //      "createdOn": "2015-04-28 16:00:00", // date + time
-    //      "startedOn": "2015-04-28 17:00:00", // date + time
-    //      "endedOn": "2015-04-28 23:17:00", // date + time
-    //      "createdBy": {
-    //        "id": "lahol", // Avans username
-    //        "name": "Louis Hol", // fullname
-    //        "email": "lahol@avans.nl", // avans e-mail
-    //        "nickname": "losbarros" // maybe filled later?
-    //      },
-    //      "minPlayers": 1, // 35 <= x >= 1, Required number of players to start
-    //      "maxPlayers": 3,  // 35 <= x >= 1
-    //      "players": [{
-    //        "id": "lahol", // Avans username
-    //        "name": "Louis Hol", // fullname
-    //        "email": "lahol@avans.nl", // avans e-mail
-    //        "nickname": "losbarros" // maybe filled later?
-    //        // Properties like score and isWinner maybe filled later
-    //      }],
-    //      "state": "open" // -> 'open'|'playing'|'finished'
-    //     }
-    // ]
     
 
     function formatDate () {
@@ -80,26 +31,22 @@ init = function($http){
           second = "" + now.getSeconds(); if (second.length == 1) { second = "0" + second; }
           return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
     }
+    this.start = function(id) {
+     $http.post('http://mahjongmayhem.herokuapp.com/games/'+id+"/Start").
+      success(function(data, status, headers, config) {
+        alert("Spel is begonnen");
+      }).
+      error(function(data, status, headers, config) {
+         alert("Error: '" + data.message +"'");
+      });
+    }
 
- 
+    this.create = function() {
+        window.location.href = "#create";
+    }
     this.goto = function(id)
     {
         window.location.href ="#details/"+id;
-    }
-    this.save = function (game) {
-
-        if (game.id == null) {
-            game.id = uid++;
-            game.createdOn = formatDate();
-            game.createdBy = user;
-            games.push(game);
-        } else {
-            for (i in games) {
-                if (games[i].id == game.id) {
-                    games[i] = game;
-                }
-            }
-        }
     }
     this.get = function (id) {
         for (i in games) {
@@ -116,15 +63,16 @@ init = function($http){
             }
         }
     }
-
     this.join = function(id)
     {
-        for (i in games) {
-            if (games[i].id == id) {
-                games[i].players.push(user);
-                break;
-            }
-        }
+     $http.post('http://mahjongmayhem.herokuapp.com/games/'+id+"/Players").
+      success(function(data, status, headers, config) {
+        alert("Je bent ingeschreven");
+        location.refresh();
+      }).
+      error(function(data, status, headers, config) {
+         alert("Je bent al ingeschreven of niet ingelogd");
+      });
     }
     this.show = function(id)
     {

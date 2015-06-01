@@ -3,7 +3,11 @@ require('angular-route');
 var module = angular.module('app', ['ngRoute', 'ui.bootstrap']);
 var gameservice = require('../games/services/GameService');
 var detailsservice = require('../games/services/DetailsService');
+var gamemodalservice = require('../games/services/GameModalService');
 
+var rangefilter = require('../games/filters/RangeFilter');
+var property = require('../games/filters/DeepProperty');
+var playedgames = require('../games/filters/PlayedGames');
 
 var logincontroller = require('../games/controllers/LoginController');
 var gamecontroller = require('../games/controllers/GameController');
@@ -14,21 +18,19 @@ var Injector    = require('../games/services/TokenInjector');
 
 module.service('GameService', gameservice);
 module.service('DetailsService', detailsservice);
+module.service('GameModalService', gamemodalservice);
 
 module.factory('Injector', Injector);
 
+module.filter('range', rangefilter);
+module.filter('property', property)
+module.filter('played', playedgames);
 
 module.controller('BeheerController', gamecontroller);
 module.controller("DetailsController", detailscontroller);
 module.controller('CallbackController', ['$location', callbackcontroller]);
 module.controller('LoginController', logincontroller)
 module.controller("GameModalController", gamemodalcontroller);
-
-
-// module.config(['$locationProvider', function ($locationProvider)
-// {
-//   $locationProvider.html5Mode(true);
-// }]);
 
 module.config(['$routeProvider', function($routeProvider, $locationProvider) {
   $routeProvider.
@@ -42,6 +44,12 @@ module.config(['$routeProvider', function($routeProvider, $locationProvider) {
       controller: "CallbackController",
       controllerAs: "callback"
   }).
+  when('/create', {
+       templateUrl: "../gamemodal.html",
+      controller: "GameModalController",
+      controllerAs: "modal"
+  }).
+  
    when('/details/:id', {
        templateUrl: "../details.html",
       controller: "DetailsController", 
@@ -54,6 +62,4 @@ module.config(['$httpProvider', function ($httpProvider)
 {
   $httpProvider.interceptors.push('Injector');
 }]);
-
-
 

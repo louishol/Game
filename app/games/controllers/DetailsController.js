@@ -35,24 +35,20 @@ var Game = function($scope, $routeParams, DetailsService)
             $scope.tiles = "";
         });
 
-    $scope.removeTile = function(tile) {
+    $scope.removeTile = function(tile, $event) {
     //$scope.tiles.splice($scope.tiles.indexOf(tile), 1);
-    console.log("Remove tile functie");
-    DetailsService.checkTiles(tile, function(tiles)
+    console.log("Remove tile functie " + $event.target);
+   
+    DetailsService.checkTiles(tile, $event, function(tiles)
         {
-
-
             var index1 = $scope.tiles.indexOf(tiles[0]);
             var index2 = $scope.tiles.indexOf(tiles[1]);   
             $scope.tiles[index1].clicked = "speler1";
             $scope.tiles[index2].clicked = "speler1";
 
-            console.log("Tegels kloppen");
-            console.log("Index van object 1 " + index1);
-           // $scope.tiles.splice($scope.tiles.indexOf(tiles[0]), 1);
-            //$scope.tiles.splice($scope.tiles.indexOf(tiles[1]), 1);
         }, function(error, badtiles)
         {
+
             console.log(error);
         });
     };
