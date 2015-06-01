@@ -1,3 +1,4 @@
+
 <table class="table table-striped table-bordered detailTable" width="60%">
   <tr>
     <td class="header">Game ID</td>
@@ -9,18 +10,18 @@
     <td class="header">Game template</td>
     <td>{{ game._id }}</td>
     <td class="header">Gestart op</td>
-    <td>{{ game.startedOn }}</td>
+    <td>{{ game.startedOn | date:'dd-MM-yyyy HH:mm:ss' }}</td>
   </tr>
   <tr>
     <td class="header">Gemaakt door</td>
     <td>{{ game.gameTemplate._id }}</td>
     <td class="header">Beeindigd op</td>
-    <td>{{ game.endedOn }}</td>
+    <td>{{ game.endedOn | date:'dd-MM-yyyy HH:mm:ss' }}</td>
   </tr>
   <tr>
     <td colspan="2">&nbsp;</td>
     <td class="header">Aangemaakt op</td>
-    <td>{{ game.createdOn }}</td>
+    <td>{{ game.createdOn | date:'dd-MM-yyyy HH:mm:ss' }}</td>
   </tr>
   <tr>
     <td class="header">Minimaal spelers</td>

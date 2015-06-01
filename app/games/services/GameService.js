@@ -82,6 +82,10 @@ init = function($http){
     }
 
  
+    this.goto = function(id)
+    {
+        window.location.href ="#details/"+id;
+    }
     this.save = function (game) {
 
         if (game.id == null) {

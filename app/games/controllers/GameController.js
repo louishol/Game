@@ -26,5 +26,8 @@ var Game = function($scope, GameService)
     $scope.show = function (id) {
         GameService.show(id);
     }
+    $scope.goto = function(id) {
+        GameService.goto(id);
+    }
 }
 module.exports = Game;

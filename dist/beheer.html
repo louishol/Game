@@ -1,29 +1,104 @@
-<base href="/">
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Layout</th>
-            <th>Aangemaakt door</th>
-            <th>Gemaakt op</th>
-            <th>Start datum</th>
-            <th>Minimale spelers</th>
-            <th>Maximale spelers</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="game in games track by $index">
-      
-            <td>{{ game.gameTemplate.id }}</td>
-            <td>{{ game.createdBy.name }}</td>
-            <td>{{ game.createdOn }}</td>
-            <td>{{ game.startedOn }}</td>
-            <td>{{ game.minPlayers }}</td>
-            <td>{{ game.maxPlayers }}</td>
-            <td>{{ game.state }}</td>
-            <td> <!-- <a href="javascript:void(0)" ng-click="edit(game.id)">edit</a>  --> <!-- <a href="javascript:void(0)" ng-click="delete(game.id)">delete</a> -->  <a href="javascript:void(0)" ng-click="join(game.id)" ng-show="game.state === 'open'"> join</a> <a href="javascript:void(0)" ng-click="show(game.id)" ng-show="game.state === 'open'">| spelers |</a> <a href="#details/{{game.id}}"> Details</a>
-            </td> 
-        </tr>
-    </tbody>
-</table>
-<!-- </div> -->
+
+<div ng-controller="GameModalController">
+    <script type="text/ng-template" id="gamemodal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Im a modal!</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+               <li>ok</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+    <button ng-click="open()" type="button" style="float:right;" class="btn btn-primary">
+    Nieuw spel aanmaken
+</button>
+
+</div>
+
+
+
+
+
+
+
+  <tabset>
+    <tab heading="Open Games">
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Layout</th>
+                <th>Aangemaakt door</th>
+                <th>Gemaakt op</th>
+                <th>Start datum</th>
+                <th>Minimale spelers</th>
+                <th>Maximale spelers</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="game in games | orderBy: 'createdOn':true | filter:{state: 'open'}" >
+          
+                <td>{{ game.gameTemplate.id }}</td>
+                <td>{{ game.createdBy.name }}</td>
+                <td>{{ game.createdOn | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                <td>{{ game.startedOn | date:'dd-MM-yyyy HH:mm:ss' }}</td>
+                <td>{{ game.minPlayers }}</td>
+                <td>{{ game.maxPlayers }}</td>
+                <td>{{ game.state }}</td>
+                <td>   <button ng-click="join(game.id)" ng-show="game.state === 'open'"  type="button" class="btn btn-primary">
+                    Join
+                    </button>
+                    <button ng-click="goto(game.id)" type="button" class="btn btn-primary">
+                    Details
+                    </button></td> 
+            </tr>
+        </tbody>
+    </table>
+
+    </tab>
+    <tab heading="Actieve Games">
+        <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Layout</th>
+                <th>Aangemaakt door</th>
+                <th>Gemaakt op</th>
+                <th>Start datum</th>
+                <th>Minimale spelers</th>
+                <th>Maximale spelers</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="game in games | orderBy: 'createdOn':true | filter:{state: 'playing'}" >
+          
+                <td>{{ game.gameTemplate.id }}</td>
+                <td>{{ game.createdBy.name }}</td>
+                <td>{{ game.createdOn | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                <td>{{ game.startedOn | date:'dd-MM-yyyy HH:mm:ss' }}</td>
+                <td>{{ game.minPlayers }}</td>
+                <td>{{ game.maxPlayers }}</td>
+                <td>{{ game.state }}</td>
+                <td>
+                    <button ng-click="join(game.id)" ng-show="game.state === 'open'"  type="button" class="btn btn-primary">
+                    Join
+                    </button>
+                    <button ng-click="goto(game.id)" type="button" class="btn btn-primary">
+                    Details
+                    </button>
+            </tr>
+        </tbody>
+    </table>
+
+    </tab>
+    <tab heading="Mijn gespeelde games">Hier komt lijst van mijn gespeelde</tab>
+</tabset>
+
+
+<!-- </div>

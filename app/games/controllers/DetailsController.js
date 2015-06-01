@@ -1,7 +1,12 @@
 var Game = function($scope, $routeParams, DetailsService)
 {
+
+    this.init = function(){
+       
+    }
+
     var id = $routeParams.id;
-    $scope.test = "ddddd";
+  
     $scope.username = 'World';
     $scope.game = "";
     var tiles = [];
@@ -25,8 +30,6 @@ var Game = function($scope, $routeParams, DetailsService)
                 tiles.push(data[tile]);
             }
             $scope.tiles = tiles;
-            console.log("Tile info " + JSON.stringify(tiles));
-    
 
         }, function(error) {
             $scope.tiles = "";
