@@ -13,7 +13,6 @@ var games = function()
        for(var x =0; x<players.length; x++) {
        		if(players[x]._id == username)
        		{
-       			console.log("Komt overeen " + i);
        			filtered.push(item);
        			break;
        		}

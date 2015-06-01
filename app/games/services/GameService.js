@@ -1,4 +1,4 @@
-init = function($http){
+init = function($http, $location){
 
   var uid = 3;
 
@@ -67,8 +67,9 @@ init = function($http){
     {
      $http.post('http://mahjongmayhem.herokuapp.com/games/'+id+"/Players").
       success(function(data, status, headers, config) {
-        alert("Je bent ingeschreven");
-        location.refresh();
+  
+        $location.url('/index');
+        window.location.href = "index.html";
       }).
       error(function(data, status, headers, config) {
          alert("Je bent al ingeschreven of niet ingelogd");
