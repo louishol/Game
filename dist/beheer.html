@@ -121,8 +121,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="game in games | orderBy: 'createdOn':true | property:'createdBy.name': 'Louis Hol'" >
-          
+            <tr ng-repeat="game in games | orderBy: 'createdOn':true | host:'createdBy._id'" >
                 <td>{{ game.gameTemplate.id }}</td>
                 <td>{{ game.createdBy.name }}</td>
                 <td>{{ game.createdOn | date:'dd-MM-yyyy HH:mm:ss'}}</td>

@@ -4,7 +4,6 @@ var Game = function($scope, $routeParams, DetailsService)
     this.init = function(){
        
     }
-
     var id = $routeParams.id;
   
     $scope.username = 'World';

@@ -1,8 +1,6 @@
-
-
 var property = function()
 {
-      function parseString(input){
+    function parseString(input){
         return input.split(".");
     }
  
@@ -16,9 +14,15 @@ var property = function()
         return value;
     }
  
-    return function (array, propertyString, target){
+    return function (array, propertyString){
+
+        console.log("In de host filter " + propertyString);
+        var target = window.localStorage.getItem('username');
+        console.log("TARGET = " + target);
+        if(target == null)
+          return [];
         var properties = parseString(propertyString);
-     console.log("TARGET " + target);
+ 
         return _.filter(array, function(item){
             return getValue(item, properties) == target;
         });

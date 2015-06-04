@@ -7,6 +7,7 @@ var gamemodalservice = require('../games/services/GameModalService');
 
 var rangefilter = require('../games/filters/RangeFilter');
 var property = require('../games/filters/DeepProperty');
+var gamehost = require('../games/filters/GameHost');
 var playedgames = require('../games/filters/PlayedGames');
 
 var logincontroller = require('../games/controllers/LoginController');
@@ -25,6 +26,8 @@ module.factory('Injector', Injector);
 module.filter('range', rangefilter);
 module.filter('property', property)
 module.filter('played', playedgames);
+module.filter('host', gamehost);
+
 
 module.controller('BeheerController', gamecontroller);
 module.controller("DetailsController", detailscontroller);
