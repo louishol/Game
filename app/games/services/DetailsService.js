@@ -1,5 +1,6 @@
-init = function($http){
-
+init = function($http, socket){
+  console.log("Socket wordt nu opgestart");
+socket.connectSocket();
 
 var checktiles = [];
 var highlight = [];
@@ -14,6 +15,21 @@ var highlight = [];
         error(data);
       });
     }
+
+this.postTiles = function(tile1, tile2, gameid, success, error)
+{
+  var id1 = tile1._id;
+  var id2 = tile2._id; 
+  var match = {"tile1Id": id1, "tile2Id": id2};
+
+  $http.post('http://mahjongmayhem.herokuapp.com/games/'+gameid+"/Tiles/matches", JSON.stringify(match)).
+      success(function(data, status, headers, config) {
+        success(data);
+      }).
+      error(function(data, status, headers, config) {
+        error(data);
+      });
+} 
 
 this.checkTiles = function(tile, $event, succes, error){
       if(checktiles.length == 0) {
