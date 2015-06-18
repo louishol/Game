@@ -1,0 +1,67 @@
+@mixin sprite($left, $top) {
+  background:url("http://i61.tinypic.com/2zdyhrr.png") $left $top no-repeat;
+}
+
+#appContainer { padding:20px;}
+	 #mahjong { position:relative; height:700px; }
+	#mahjong .tile { padding-top:5px; color:red; width:42px; height:64px; font-weight:bold; position:absolute; background:green; text-align:center; }
+	   #mahJong .tile.highlight { opacity: 0.8; }
+
+  #mahJong { 
+    .tile { 
+      @for $i from 1 through 9{
+        &.Circle#{$i} {
+          @include sprite(($i - 1) * -42px, 0);
+        }
+      }
+
+      @for $i from 1 through 9 {
+        &.Bamboo#{$i} {
+          @include sprite(($i - 1) * -42px, -64px);
+        }
+      }
+
+      @for $i from 1 through 9 {
+        &.Character1#{$i} {
+          @include sprite(($i - 1) * -42px, -128px);
+        }
+      }
+
+      &.WindNorth { @include sprite(-42px, -192px); }
+      &.WindEast { @include sprite(-126px, -192px); }
+      &.WindSouth { @include sprite(-42px, -192px); }
+      &.WindWest { @include sprite(0, -192px); }
+      
+      &.SeasonSpring { @include sprite(-168px, -256px); }
+      &.SeasonAutumn { @include sprite(-210px, -256px); }
+      &.SeasonWinter { @include sprite(-294px, -256px); }
+      &.SeasonSummer { @include sprite(-252px, -256px); }
+      
+      &.FlowerPlum { @include sprite(-210px, -192px); }
+      &.FlowerOrchid { @include sprite(-252px, -192px); }
+      &.FlowerChrysantememum { @include sprite(-294px, -192px); }
+      &.FlowerBamboo { @include sprite(-336px, -192px); }
+
+      &.DragonWhite { @include sprite(0, 256px); }
+      &.DragonGreen { @include sprite(-42px, 256px); }
+      &.DragonRed { @include sprite(-84px, 256px); }
+
+    }
+  }
+
+	.detailTable { margin:0 0 20px; }
+	table { }
+		table tr { }
+			table tr td { }
+				table tr td.header { font-weight:bold; }
+
+/* Layout fixes */
+.clear { clear:both; }
+
+.clearFix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
