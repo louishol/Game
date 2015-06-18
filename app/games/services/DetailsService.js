@@ -1,6 +1,4 @@
 init = function($http, socket){
-  console.log("Socket wordt nu opgestart");
-socket.connectSocket();
 
 var checktiles = [];
 var highlight = [];
@@ -15,6 +13,20 @@ var highlight = [];
         error(data);
       });
     }
+
+
+this.findIndexByTile = function(tiles, tile)
+{
+  for(var t in tiles)
+  {
+    console.log("Gevonden id " + tiles[t]._id " | moet hebben " + tile._id);
+    if(tiles[t]._id == tile._id)
+    {
+      return t;
+    }
+  }
+  return null;
+}
 
 this.postTiles = function(tile1, tile2, gameid, success, error)
 {

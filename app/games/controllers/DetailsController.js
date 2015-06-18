@@ -1,14 +1,38 @@
 var Game = function($scope, $routeParams, DetailsService)
 {
-    this.init = function(){
-       
-    }
-    var id = $routeParams.id;
-  
+    var socket;
+    var tiles = [];
+    var id = $routeParams.id
+    
     $scope.username = 'World';
     $scope.game = "";
-    var tiles = [];
     
+    socket = io('http://mahjongmayhem.herokuapp.com?gameId='+id);
+    socket.on('match', function(data) {
+
+        alert("Match : " + JSON.stringify(data));
+        var tile1 = data[0];
+        var tile2 = data[1];
+
+        var index1 = DetailsService.findIndexByTile($scope.tiles, tile1);
+        var index2 = DetailsService.findIndexByTile($scope.tiles, tile2);
+
+        data[0].tile = tiles[index1].tile;
+        data[1].tile = tiles[index2].tile;
+
+        $scope.tiles.splice(index1,1);
+        $scope.tiles.splice(index2,1);
+
+        $scope.tiles.push(data[0]);
+        $scope.tiles.push(data[1]);
+
+    });
+
+    socket.on('playerjoined', function(data){
+        alert("Plauerjoined " + JSON.stringify(data));
+    });
+
+
     DetailsService.getDetailsByID(id, function(data)
         {
             console.log(data);
