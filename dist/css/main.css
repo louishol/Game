@@ -19,7 +19,7 @@
 }
 
 #mahJong .tile.highlight {
-  opacity: 0.8;
+  box-shadow: 5px 5px 20px #888888;
 }
 
 #mahJong .tile.Circle1 {
@@ -76,31 +76,31 @@
 #mahJong .tile.Bamboo9 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -336px -64px no-repeat;
 }
-#mahJong .tile.Character11 {
+#mahJong .tile.Character1 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") 0px -128px no-repeat;
 }
-#mahJong .tile.Character12 {
+#mahJong .tile.Character2 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -42px -128px no-repeat;
 }
-#mahJong .tile.Character13 {
+#mahJong .tile.Character3 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -84px -128px no-repeat;
 }
-#mahJong .tile.Character14 {
+#mahJong .tile.Character4 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -126px -128px no-repeat;
 }
-#mahJong .tile.Character15 {
+#mahJong .tile.Character5 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -168px -128px no-repeat;
 }
-#mahJong .tile.Character16 {
+#mahJong .tile.Character6 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -210px -128px no-repeat;
 }
-#mahJong .tile.Character17 {
+#mahJong .tile.Character7 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -252px -128px no-repeat;
 }
-#mahJong .tile.Character18 {
+#mahJong .tile.Character8 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -294px -128px no-repeat;
 }
-#mahJong .tile.Character19 {
+#mahJong .tile.Character9 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -336px -128px no-repeat;
 }
 #mahJong .tile.WindNorth {
@@ -140,13 +140,13 @@
   background: url("http://i61.tinypic.com/2zdyhrr.png") -336px -192px no-repeat;
 }
 #mahJong .tile.DragonWhite {
-  background: url("http://i61.tinypic.com/2zdyhrr.png") 0 256px no-repeat;
+  background: url("http://i61.tinypic.com/2zdyhrr.png") 0 -256px no-repeat;
 }
 #mahJong .tile.DragonGreen {
-  background: url("http://i61.tinypic.com/2zdyhrr.png") -42px 256px no-repeat;
+  background: url("http://i61.tinypic.com/2zdyhrr.png") -42px -256px no-repeat;
 }
 #mahJong .tile.DragonRed {
-  background: url("http://i61.tinypic.com/2zdyhrr.png") -84px 256px no-repeat;
+  background: url("http://i61.tinypic.com/2zdyhrr.png") -84px -256px no-repeat;
 }
 
 .detailTable {

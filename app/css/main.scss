@@ -1,50 +1,54 @@
+$spriteImageWidth: 42px;
+$spriteImageHeight: 64px;
+$spriteURL: "http://i61.tinypic.com/2zdyhrr.png";
+
 @mixin sprite($left, $top) {
-  background:url("http://i61.tinypic.com/2zdyhrr.png") $left $top no-repeat;
+  background:url($spriteURL) $left $top no-repeat;
 }
 
 #appContainer { padding:20px;}
 	 #mahjong { position:relative; height:700px; }
 	#mahjong .tile { padding-top:5px; color:red; width:42px; height:64px; font-weight:bold; position:absolute; background:green; text-align:center; }
-	   #mahJong .tile.highlight { opacity: 0.8; }
+	   #mahJong .tile.highlight { box-shadow: 5px 5px 20px #888888; }
 
   #mahJong { 
     .tile { 
       @for $i from 1 through 9{
         &.Circle#{$i} {
-          @include sprite(($i - 1) * -42px, 0);
+          @include sprite(($i - 1) * -$spriteImageWidth, 0);
         }
       }
 
       @for $i from 1 through 9 {
         &.Bamboo#{$i} {
-          @include sprite(($i - 1) * -42px, -64px);
+          @include sprite(($i - 1) * -$spriteImageWidth, -$spriteImageHeight);
         }
       }
 
       @for $i from 1 through 9 {
-        &.Character1#{$i} {
-          @include sprite(($i - 1) * -42px, -128px);
+        &.Character#{$i} {
+          @include sprite(($i - 1) * -$spriteImageWidth, -($spriteImageHeight*2));
         }
       }
 
-      &.WindNorth { @include sprite(-42px, -192px); }
-      &.WindEast { @include sprite(-126px, -192px); }
-      &.WindSouth { @include sprite(-42px, -192px); }
-      &.WindWest { @include sprite(0, -192px); }
+      &.WindNorth { @include sprite(-$spriteImageWidth, -($spriteImageHeight*3)); }
+      &.WindEast  { @include sprite(-($spriteImageWidth*3), -($spriteImageHeight*3)); }
+      &.WindSouth { @include sprite(-$spriteImageWidth, -($spriteImageHeight*3)); }
+      &.WindWest  { @include sprite(0, -($spriteImageHeight*3)); }
       
-      &.SeasonSpring { @include sprite(-168px, -256px); }
-      &.SeasonAutumn { @include sprite(-210px, -256px); }
-      &.SeasonWinter { @include sprite(-294px, -256px); }
-      &.SeasonSummer { @include sprite(-252px, -256px); }
+      &.SeasonSpring { @include sprite(-($spriteImageWidth*4), -($spriteImageHeight*4)); }
+      &.SeasonAutumn { @include sprite(-($spriteImageWidth*5), -($spriteImageHeight*4)); }
+      &.SeasonWinter { @include sprite(-($spriteImageWidth*7), -($spriteImageHeight*4)); }
+      &.SeasonSummer { @include sprite(-($spriteImageWidth*6), -($spriteImageHeight*4)); }
       
-      &.FlowerPlum { @include sprite(-210px, -192px); }
-      &.FlowerOrchid { @include sprite(-252px, -192px); }
-      &.FlowerChrysantememum { @include sprite(-294px, -192px); }
-      &.FlowerBamboo { @include sprite(-336px, -192px); }
+      &.FlowerPlum            { @include sprite(-($spriteImageWidth*5), -($spriteImageHeight*3)); }
+      &.FlowerOrchid          { @include sprite(-($spriteImageWidth*6), -($spriteImageHeight*3)); }
+      &.FlowerChrysantememum  { @include sprite(-($spriteImageWidth*7), -($spriteImageHeight*3)); }
+      &.FlowerBamboo          { @include sprite(-($spriteImageWidth*8), -($spriteImageHeight*3)); }
 
-      &.DragonWhite { @include sprite(0, 256px); }
-      &.DragonGreen { @include sprite(-42px, 256px); }
-      &.DragonRed { @include sprite(-84px, 256px); }
+      &.DragonWhite { @include sprite(0, -($spriteImageHeight*4)); }
+      &.DragonGreen { @include sprite(-$spriteImageWidth, -($spriteImageHeight*4)); }
+      &.DragonRed   { @include sprite(-($spriteImageWidth*2), -($spriteImageHeight*4));  }
 
     }
   }
