@@ -32,7 +32,6 @@ var Game = function($scope, $routeParams, DetailsService)
         alert("Plauerjoined " + JSON.stringify(data));
     });
 
-
     DetailsService.getDetailsByID(id, function(data)
         {
             console.log(data);
@@ -59,7 +58,7 @@ var Game = function($scope, $routeParams, DetailsService)
     $scope.removeTile = function(tile, $event, id) {
     //$scope.tiles.splice($scope.tiles.indexOf(tile), 1);
     console.log("Remove tile functie " + $event.target);
-    DetailsService.checkTiles(tile, $event, function(tiles)
+    DetailsService.checkTiles(tile, tiles, $event, function(tiles)
         {
             var index1 = $scope.tiles.indexOf(tiles[0]);
             var index2 = $scope.tiles.indexOf(tiles[1]);   
