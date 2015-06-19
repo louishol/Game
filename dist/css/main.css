@@ -9,7 +9,6 @@
 
 #mahjong .tile {
   padding-top: 5px;
-  color: red;
   width: 42px;
   height: 64px;
   font-weight: bold;
@@ -155,6 +154,16 @@
 
 table tr td.header {
   font-weight: bold;
+}
+
+/* buttons */
+a {
+  color: #428bca !important;
+}
+
+.btn-primary {
+  border-color: #357ebd !important;
+  background-color: #428bca !important;
 }
 
 /* Layout fixes */

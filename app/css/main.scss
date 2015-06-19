@@ -1,14 +1,13 @@
-$spriteImageWidth: 42px;
-$spriteImageHeight: 64px;
-$spriteURL: "http://i61.tinypic.com/2zdyhrr.png";
+@import "config";
 
+// main css
 @mixin sprite($left, $top) {
   background:url($spriteURL) $left $top no-repeat;
 }
 
 #appContainer { padding:20px;}
 	 #mahjong { position:relative; height:700px; }
-	#mahjong .tile { padding-top:5px; color:red; width:42px; height:64px; font-weight:bold; position:absolute; background:green; text-align:center; }
+	#mahjong .tile { padding-top:5px; width:$spriteImageWidth; height:$spriteImageHeight; font-weight:bold; position:absolute; background:green; text-align:center; }
 	   #mahJong .tile.highlight { box-shadow: 5px 5px 20px #888888; }
 
   #mahJong { 
@@ -58,6 +57,11 @@ $spriteURL: "http://i61.tinypic.com/2zdyhrr.png";
 		table tr { }
 			table tr td { }
 				table tr td.header { font-weight:bold; }
+
+
+/* buttons */
+a { color:$a !important; }
+.btn-primary { border-color:$buttonPrimaryBorderColor !important; background-color:$buttonPrimaryBgColor !important; }
 
 /* Layout fixes */
 .clear { clear:both; }
