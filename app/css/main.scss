@@ -33,7 +33,7 @@ $spriteURL: "http://i61.tinypic.com/2zdyhrr.png";
 
       &.WindNorth { @include sprite(-$spriteImageWidth, -($spriteImageHeight*3)); }
       &.WindEast  { @include sprite(-($spriteImageWidth*3), -($spriteImageHeight*3)); }
-      &.WindSouth { @include sprite(-$spriteImageWidth, -($spriteImageHeight*3)); }
+      &.WindSouth { @include sprite(-($spriteImageWidth*2), -($spriteImageHeight*3)); }
       &.WindWest  { @include sprite(0, -($spriteImageHeight*3)); }
       
       &.SeasonSpring { @include sprite(-($spriteImageWidth*4), -($spriteImageHeight*4)); }
