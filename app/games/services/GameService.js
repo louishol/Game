@@ -8,6 +8,20 @@ init = function($http, $location){
 
   var games = [];
 
+ 
+  this.getAllGames = function()
+  {
+    return games;
+  }
+
+  this.addGame = function(game) {
+    games.push(game); 
+  }
+
+ 
+  this.mapGames = function(_games) {
+    games = _games;
+  }
   $http.get('http://mahjongmayhem.herokuapp.com/games').
       success(function(data, status, headers, config) {
         for(game in data)
@@ -19,8 +33,7 @@ init = function($http, $location){
         console.log("error");
       });
 
-    
-
+  
     function formatDate () {
           now = new Date();
           year = "" + now.getFullYear();

@@ -13,7 +13,7 @@ var property = function()
         return null;
        
     }
- 
+
     function getValue(element, propertyArray){
         var value = element;
         
