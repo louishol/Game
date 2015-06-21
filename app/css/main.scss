@@ -30,15 +30,15 @@
         }
       }
 
-      &.WindNorth { @include sprite(-$spriteImageWidth, -($spriteImageHeight*3)); }
-      &.WindEast  { @include sprite(-($spriteImageWidth*3), -($spriteImageHeight*3)); }
-      &.WindSouth { @include sprite(-($spriteImageWidth*2), -($spriteImageHeight*3)); }
       &.WindWest  { @include sprite(0, -($spriteImageHeight*3)); }
+      &.WindNorth { @include sprite(-$spriteImageWidth, -($spriteImageHeight*3)); }
+      &.WindSouth { @include sprite(-($spriteImageWidth*2), -($spriteImageHeight*3)); }
+      &.WindEast  { @include sprite(-($spriteImageWidth*3), -($spriteImageHeight*3)); }
       
       &.SeasonSpring { @include sprite(-($spriteImageWidth*4), -($spriteImageHeight*4)); }
       &.SeasonAutumn { @include sprite(-($spriteImageWidth*5), -($spriteImageHeight*4)); }
-      &.SeasonWinter { @include sprite(-($spriteImageWidth*7), -($spriteImageHeight*4)); }
       &.SeasonSummer { @include sprite(-($spriteImageWidth*6), -($spriteImageHeight*4)); }
+      &.SeasonWinter { @include sprite(-($spriteImageWidth*7), -($spriteImageHeight*4)); }      
       
       &.FlowerPlum            { @include sprite(-($spriteImageWidth*5), -($spriteImageHeight*3)); }
       &.FlowerOrchid          { @include sprite(-($spriteImageWidth*6), -($spriteImageHeight*3)); }

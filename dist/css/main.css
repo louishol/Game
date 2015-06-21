@@ -102,17 +102,17 @@
 #mahJong .tile.Character9 {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -336px -128px no-repeat;
 }
+#mahJong .tile.WindWest {
+  background: url("http://i61.tinypic.com/2zdyhrr.png") 0 -192px no-repeat;
+}
 #mahJong .tile.WindNorth {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -42px -192px no-repeat;
-}
-#mahJong .tile.WindEast {
-  background: url("http://i61.tinypic.com/2zdyhrr.png") -126px -192px no-repeat;
 }
 #mahJong .tile.WindSouth {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -84px -192px no-repeat;
 }
-#mahJong .tile.WindWest {
-  background: url("http://i61.tinypic.com/2zdyhrr.png") 0 -192px no-repeat;
+#mahJong .tile.WindEast {
+  background: url("http://i61.tinypic.com/2zdyhrr.png") -126px -192px no-repeat;
 }
 #mahJong .tile.SeasonSpring {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -168px -256px no-repeat;
@@ -120,11 +120,11 @@
 #mahJong .tile.SeasonAutumn {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -210px -256px no-repeat;
 }
-#mahJong .tile.SeasonWinter {
-  background: url("http://i61.tinypic.com/2zdyhrr.png") -294px -256px no-repeat;
-}
 #mahJong .tile.SeasonSummer {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -252px -256px no-repeat;
+}
+#mahJong .tile.SeasonWinter {
+  background: url("http://i61.tinypic.com/2zdyhrr.png") -294px -256px no-repeat;
 }
 #mahJong .tile.FlowerPlum {
   background: url("http://i61.tinypic.com/2zdyhrr.png") -210px -192px no-repeat;
