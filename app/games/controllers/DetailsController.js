@@ -23,10 +23,7 @@ var Game = function($scope, $routeParams, DetailsService)
 
     });
 
-    socket.on('playerjoined', function(data){
-        console.log("Playerjoin " + JSON.stringify(data));
-        alert("Plauerjoined " + JSON.stringify(data));
-    });
+
 
     DetailsService.getDetailsByID(id, function(data)
         {

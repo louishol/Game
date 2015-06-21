@@ -49,7 +49,7 @@ describe('Directive', function() {
 	function getCompiledElement(){
   var element = angular.element('<tile tile="tile"></tile>');
  scope.tile = {xPos: 11, yPos: 12, zPos: 3, tile: {_id: 48,suit: "Bamboo", name: "4", matchesWholeSuit: false,__v: 0, id: "48" }, _id: "5541fc5b1872631100678c44" };
-    var compiledElement = $compile(element)(scope);
+    var compiledElement = $compile(element)(scope.tile);
    scope.$digest();
   return compiledElement;
 }
