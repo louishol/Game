@@ -6,8 +6,7 @@ var Game = function($scope, $routeParams, DetailsService)
     
     $scope.username = 'World';
     $scope.game = "";
-    
-    
+        
     socket = io('http://mahjongmayhem.herokuapp.com?gameId='+id);
     socket.on('match', function(data) {
 
@@ -22,8 +21,6 @@ var Game = function($scope, $routeParams, DetailsService)
         $scope.$apply() 
 
     });
-
-
 
     DetailsService.getDetailsByID(id, function(data)
         {
