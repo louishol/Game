@@ -43,37 +43,37 @@ this.tileValidation = function(tiles, tile)
       }
       else if(_tile.xPos - tile.xPos == 1 && _tile.yPos - tile.yPos == 1 && _tile.zPos > tile.zPos)
       {
-        console.log("Er ligt er 1 rechtsonder boven " + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
+       // console.log("Er ligt er 1 rechtsonder boven " + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
        up = true;
       }
       else if(_tile.xPos - tile.xPos == 1 && _tile.yPos - tile.yPos == -1 && _tile.zPos > tile.zPos)
       {
-       console.log("Er ligt er 1 rechtsboven boven " + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
+       //console.log("Er ligt er 1 rechtsboven boven " + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
         up = true;
       }
       else if(_tile.xPos - tile.xPos == -1 && _tile.yPos - tile.yPos == -1 && _tile.zPos > tile.zPos)
       {
-      console.log("Er ligt er 1 linksboven boven" + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
+      //console.log("Er ligt er 1 linksboven boven" + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
         up = true;
       }
       else if(_tile.xPos - tile.xPos == -1 && _tile.yPos - tile.yPos == 1 && _tile.zPos > tile.zPos)
       {
-        console.log("Er ligt er 1 linksonder boven" + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
+      //  console.log("Er ligt er 1 linksonder boven" + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
         up = true;
       } 
       else if(_tile.xPos == tile.xPos && _tile.yPos == tile.yPos && _tile.zPos > tile.zPos)
       {
-        console.log("Er ligt er 1 bovenop" + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
+       // console.log("Er ligt er 1 bovenop" + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
         up = true;
       }
       else if(_tile.xPos == tile.xPos && _tile.yPos - tile.yPos == -1 && _tile.zPos > tile.zPos)
       {
-        console.log("Er ligt er 1 boven bovenop" + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
+        //console.log("Er ligt er 1 boven bovenop" + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
         up = true;
       }
       else if(_tile.xPos == tile.xPos && _tile.yPos - tile.yPos == 1 && _tile.zPos > tile.zPos)
       {
-        console.log("Er ligt er 1 onder bovenop" + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
+        //console.log("Er ligt er 1 onder bovenop" + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
         up = true;
       }
     }

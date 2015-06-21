@@ -14,7 +14,6 @@ describe('Services', function() {
 		gameservice = $injector.get('GameService');
 	}));
 
-
 	it('Tile should not be able to match', function() {
 
 	var dummydata = [{xPos: 11, yPos: 12, zPos: 3, tile: {_id: 48,suit: "Bamboo", name: "4", matchesWholeSuit: false,__v: 0, id: "48" }, _id: "5541fc5b1872631100678c44" },
