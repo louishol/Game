@@ -20,9 +20,8 @@ var TileDirective = function(){
 				element.css({'left': left +"px"});
 				element.css({'top': top +"px"});
 				element.css({'z-index': z});
-
 				element.addClass(cssclass);
-			
+				
 				element.bind('click', function()
 				{
 					if(highlight.length == 0) {

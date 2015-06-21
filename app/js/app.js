@@ -1,6 +1,8 @@
 require('angular/angular');
 require('angular-route');
 require('angular-ui-router/build/angular-ui-router');
+
+
  
 var module = angular.module('app', ['ngRoute', 'ui.bootstrap', 'ui.router']);
 var gameservice = require('../games/services/GameService');

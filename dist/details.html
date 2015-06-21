@@ -56,11 +56,15 @@
 </table>
 
 <div id="mahjong">
+<<<<<<< HEAD
   <div ng-repeat="tile in tiles | notmatched" ng-click="removeTile(tile, $event, game._id)">
 
     <tile tile="tile"></tile>
 
   </div>
+=======
+  <div ng-repeat="tile in tiles | notmatched" ng-click="removeTile(tile, $event, game._id)" class="tile {{tile.tile.suit}}{{tile.tile.name}}" style="left: {{ tile.xPos * 21 }}px; top: {{ tile.yPos * 32 + 100 + tile.zPos * 5 }}px; z-index: {{ tile.zPos * 5 }};"></div>
+>>>>>>> 209966819c8f7f33ec282987ea062047d9ba6cb4
   <div class="clear"></div>
 </div>
 
