@@ -41,6 +41,18 @@ this.tileValidation = function(tiles, tile)
    //     console.log("Er ligt er 1 links naast " + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
         leftside = true;
       }
+
+
+      else if(_tile.xPos - tile.xPos == -1 && _tile.yPos - tile.yPos == 0 && _tile.zPos >= tile.zPos) {
+
+        up = true;
+      }
+
+      else if(_tile.xPos - tile.xPos == +1 && _tile.yPos - tile.yPos == 0 && _tile.zPos >= tile.zPos) {
+
+        up = true;
+      }
+
       else if(_tile.xPos - tile.xPos == 1 && _tile.yPos - tile.yPos == 1 && _tile.zPos > tile.zPos)
       {
        // console.log("Er ligt er 1 rechtsonder boven " + JSON.stringify(tile) + " | " + JSON.stringify(_tile));
